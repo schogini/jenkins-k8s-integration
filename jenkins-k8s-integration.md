@@ -2,8 +2,9 @@
 
 ## Creating a Jenkins Docker Container
 
+You will be able to execute the below commands from any machine with docker, kubernetes and mvn installed. And for deploying to a Kubernetes cluster on AWS, that machine's kubeconfig should point to the correct cluster and the server urls.
+
 ```
-[FROM AN EC2 INSTANCE WITH DOCKER, KUBERNETES & MAVEN INSTALLED]
 # Go to the correct directory on your terminal window.
 cd /Users/sree/docker/jenkins
 
@@ -24,7 +25,7 @@ Step 1: Create a new pipeline job in Jenkins
 
 Step 2: Get the pipeline script from the url: https://github.com/schogini/java-war-junit-add/blob/master/Jenkinsfile
 Note:
-1. In the pipeline script, adapt the parameters with values for the "JENKINSDIR" for Jenkins home directory path on your local machine, "MVNCACHE" for Maven Cache location on your local machine and "DOCKER_U" for your DockerHub username.
+1. In the pipeline script, adapt the parameters with values for the "JENKINSDIR" for Jenkins home directory path on your local machine, "MVNCACHE" for Maven Cache location on your local machine (first time this will download the Maven cache but from next time onwards, the build should happen faster) and "DOCKER_U" for your DockerHub username.
 2. This pipeline script will be cloning the repo: https://github.com/schogini/java-war-junit-add.git. This repo contains the ansible directory, which has the Ansible playbooks used by the pipeline. Also it has the kubernetes directory, which has the yaml file used for creating service by the pipeline script.
 
 Step 3: Execute the Jenkins job.
