@@ -3,7 +3,7 @@
 ## Creating a Jenkins Docker Container
 
 ```
-[ON ANY MACHINE WITH DOCKER INSTALLED - the below command are for a MAC Machine]
+[FROM AN EC2 INSTANCE WITH DOCKER, KUBERNETES & MAVEN INSTALLED]
 # Go to the correct directory on your terminal window.
 cd /Users/sree/docker/jenkins
 
@@ -16,6 +16,7 @@ docker run -itd -e JENKINS_USER=$(id -u) --rm -p 8124:8080 -p 50000:50000 \
 -v /Users/sree/.minikube:/Users/sree/.minikube \
 --name my-jenkins schogini/my-jenkins-img
 ```
+Here, the ~/.docker-pass specifies the file where your DockerHub password is stored. Otherwise specify the correct file with the password.
 
 ## Jenkins pipeline
 
